@@ -34,10 +34,23 @@ const ContactInfo = db.define('ContactInfo' , {
 
 })
 
+const Users = db.define('users' , {
+    username : {
+        type : Sequelize.STRING,
+        allowNull : false
+    },
+    password : {
+        type: Sequelize.STRING,
+        allowNull : false
+    },
+    firstName : Sequelize.STRING,
+    lastName : Sequelize.STRING
+})
+
 db.sync()
    .then(() => console.log("Database has been created"))
    .catch((err) => console.log("Error creating database"))
 
 exports = module.exports = {
-    ContactInfo
+    ContactInfo,Users
 }

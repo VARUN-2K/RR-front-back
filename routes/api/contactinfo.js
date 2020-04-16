@@ -38,4 +38,20 @@ route.post('/' , (req,res)=>{
 
 })
 
+route.post('/delete' , (req,res)=>{
+
+    ContactInfo.destroy({
+        where : {
+            id : req.body.id
+        }
+    }).then(() => {
+        console.log("Done")
+        res.send("element deleted")
+    }).catch((err)=>{
+        console.log("error deleting")
+        res.send("error in deleted")
+    })
+
+})
+
 exports = module.exports = route
